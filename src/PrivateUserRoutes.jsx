@@ -1,7 +1,7 @@
 import { Navigate } from 'react-router-dom';
 
 const PrivateUserRoutes = ({ children }) => {
-    const token = sessionStorage.getItem('userToken'); // Assume 'userToken' is the key for user authentication token
+    const token = sessionStorage.getItem('token'); // Assume 'userToken' is the key for user authentication token
     let auth = {};
     if (token) {
         auth = { 'token': true };

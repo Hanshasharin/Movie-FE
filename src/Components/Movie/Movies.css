@@ -1,0 +1,14 @@
+.carousel{
+    height:100vh ;
+}
+
+
+.carousel-image {
+    height: 85%; 
+    object-fit: cover;
+     width: 100%; 
+  object-position: center; 
+  opacity: 23;
+}
+   
+ 
