@@ -23,7 +23,7 @@ const Movie = () => {
   useEffect(() => {
     const getAllMovies = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/api/v1/movie/getMovies");
+        const res = await axios.get("https://movie-backendserver.onrender.com/api/v1/movie/getMovies");
         const data = await res.data;
 
         // Sort movies by timestamp in descending order

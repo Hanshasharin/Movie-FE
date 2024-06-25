@@ -19,7 +19,7 @@ const UserLists = () => {
           }
       
           const res = await axios.get(
-            "http://localhost:3000/api/v1/admin/users",
+            "https://movie-backendserver.onrender.com/api/v1/admin/users",
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -47,7 +47,7 @@ const UserLists = () => {
       }
 
       const res = await axios.delete(
-        `http://localhost:3000/api/v1/admin/delete-user/${userId}`,
+        `https://movie-backendserver.onrender.com/api/v1/admin/delete-user/${userId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

@@ -25,7 +25,7 @@ export default function ReviewAdd({ movieId }) {
 
     try {
       const res = await axios.post(
-        `http://localhost:3000/api/v1/users/addreview/${movieId}`,
+        `https://movie-backendserver.onrender.com/api/v1/users/addreview/${movieId}`,
         { rating, review: desc },
         {
           withCredentials: true,

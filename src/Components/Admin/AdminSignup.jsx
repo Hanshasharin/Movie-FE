@@ -29,7 +29,7 @@ export default function SignupAdmin() {
     console.log('Form data:', data); // Log the data to ensure it is being captured correctly
 
     try {
-      const res = await axios.post("http://localhost:3000/api/v1/admin/signupAdmin", {
+      const res = await axios.post("https://movie-backendserver.onrender.com/api/v1/admin/signupAdmin", {
         name: data.name,
         email: data.email,
         password: data.password

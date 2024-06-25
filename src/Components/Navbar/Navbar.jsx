@@ -41,7 +41,7 @@ const Navbar = () => {
     console.log("Search Query:", searchQuery); // Log searchQuery before submitting
 
     try {
-      const response = await fetch(`http://localhost:3000/api/v1/movie/search?query=${searchQuery}`);
+      const response = await fetch(`https://movie-backendserver.onrender.com/api/v1/movie/search?query=${searchQuery}`);
       const data = await response.json();
       // Navigate to search results page with search data
       navigate('/search', { state: { searchResults: data } });

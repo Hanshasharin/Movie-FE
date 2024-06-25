@@ -30,7 +30,7 @@ export default function Signup() {
 
   const onSubmit = async (data) => {
     try {
-      const res = await axios.post("http://localhost:3000/api/v1/users/signin", data, {
+      const res = await axios.post("https://movie-backendserver.onrender.com/api/v1/users/signin", data, {
         withCredentials: true,
       });
       alert('User signed up successfully!');

@@ -16,7 +16,7 @@ export default function MovieDetail() {
 
   const fetchMovieDetails = async () => {
     try {
-      const response = await axios.get(`http://localhost:3000/api/v1/movie/getMovies/${id}`);
+      const response = await axios.get(`https://movie-backendserver.onrender.com/api/v1/movie/getMovies/${id}`);
       setMovie(response.data);
       setReviews(response.data.reviews);
       setLoading(false);

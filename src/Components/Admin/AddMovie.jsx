@@ -55,7 +55,7 @@ const navigate = useNavigate();
       // Fetch the image through the proxy server
       const imageUrl = `https://image.tmdb.org/t/p/w500${response.data.poster_path}`;
       const imageResponse = await axios.get(
-        `http://localhost:3000/proxy/image?url=${encodeURIComponent(imageUrl)}`,
+        `https://movie-backendserver.onrender.com/proxy/image?url=${encodeURIComponent(imageUrl)}`,
         { responseType: "arraybuffer" }
       );
 
@@ -125,7 +125,7 @@ const navigate = useNavigate();
 
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/v1/admin/addmovie",
+        "https://movie-backendserver.onrender.com/api/v1/admin/addmovie",
         formData,
         {
           withCredentials: true,
