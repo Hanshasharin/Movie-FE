@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { FaStar } from 'react-icons/fa';
 import { useRecoilState } from 'recoil';
 import { reviewsState } from '../../Atoms/Atoms';
+import { useNavigate } from 'react-router-dom';
 
 export default function ReviewAdd({ movieId }) {
   const [rating, setRating] = useState(null);
@@ -13,6 +14,7 @@ export default function ReviewAdd({ movieId }) {
   const [desc, setDesc] = useState('');
   const [error, setError] = useState('');
   const [reviews, setReviews] = useRecoilState(reviewsState);
+  const navigate = useNavigate(); // Initialize the useNavigate hook
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -43,6 +45,7 @@ export default function ReviewAdd({ movieId }) {
     } catch (error) {
       console.error('Error submitting form:', error);
       setError('Failed to submit the review. Please try again.');
+      navigate('/login')
     }
   };
 

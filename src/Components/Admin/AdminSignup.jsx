@@ -3,6 +3,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useState } from "react";
 import * as yup from "yup";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
@@ -24,8 +25,12 @@ export default function SignupAdmin() {
   });
 
   const navigate = useNavigate(); // Initialize the useNavigate hook
+  const [isSubmitting, setIsSubmitting] = useState(false); // State to prevent double submission
 
   const onSubmit = async (data) => {
+    if (isSubmitting) return; // Prevent further submission
+    setIsSubmitting(true); // Set submitting to true
+
     console.log('Form data:', data); // Log the data to ensure it is being captured correctly
 
     try {
@@ -54,7 +59,10 @@ export default function SignupAdmin() {
       } else {
         console.log('Error message:', error.message);
       }
-      console.log('Error config:', error.config);
+      // console.log('Error config:', error.config);
+    }
+    finally {
+      setIsSubmitting(false); // Reset submitting state
     }
   };
 

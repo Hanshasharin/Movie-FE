@@ -29,7 +29,7 @@ export default function Login({ setFormType }) {
         sessionStorage.setItem('token', res.data.token);
         navigate('/movie');
       } else {
-        throw new Error("Admin not authorized");
+        throw new Error("user not authorized");
       }
     } catch (error) {
       console.log(error);

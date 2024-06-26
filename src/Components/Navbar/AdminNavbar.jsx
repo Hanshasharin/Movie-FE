@@ -45,7 +45,7 @@ const AdminNavbar = () => {
           <Link to='/admin/users' className="text-lg font-semibold hover:text-blue-500">USERS</Link>
         </li>
         <li>
-          <Link to='/admin/login' onClick={tokenrelease} className="text-lg font-semibold hover:text-blue-500">LOGOUT</Link>
+          <Link to='/login' onClick={tokenrelease} className="text-lg font-semibold hover:text-blue-500">LOGOUT</Link>
         </li>
       </ul>
       

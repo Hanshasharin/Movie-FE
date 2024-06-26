@@ -3,6 +3,8 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { useState } from "react";
+
 import axios from "axios";
 import { Link, Navigate } from "react-router-dom";
 import '../../pages/Users/UserAuth.css';
@@ -27,8 +29,14 @@ export default function Signup() {
     resolver: yupResolver(schema),
   });
   const navigate = useNavigate(); // Initialize the useNavigate hook
+  const [isSubmitting, setIsSubmitting] = useState(false); // State to prevent double submission
 
   const onSubmit = async (data) => {
+    if (isSubmitting) return; // Prevent further submission
+    setIsSubmitting(true); // Set submitting to true
+
+    console.log('Form data:', data); // Log the data to ensure it is being captured correctly
+
     try {
       const res = await axios.post("https://movie-backendserver.onrender.com/api/v1/users/signin", data, {
         withCredentials: true,
@@ -51,9 +59,13 @@ export default function Signup() {
       } else {
         console.log('Error message:', error.message);
       }
-      console.log('Error config:', error.config);
+      // console.log('Error config:', error.config);
     
     }
+    finally {
+      setIsSubmitting(false); // Reset submitting state
+    }
+  
   };
 
   return (
