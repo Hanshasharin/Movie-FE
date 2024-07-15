@@ -8,6 +8,7 @@ import {
   Image,
   Stack
 } from "@chakra-ui/react";
+import { Link } from 'react-router-dom';
 
 const SearchResults = () => {
   const location = useLocation();
@@ -20,6 +21,7 @@ const SearchResults = () => {
         {searchResults && searchResults.length > 0 ? (
           searchResults.map((movie, index) => (
             <div key={index}>
+              <Link to={`/movie/dm/${movie._id}`}>
               <Card
                 direction="column"
                 overflow="hidden"
@@ -28,6 +30,9 @@ const SearchResults = () => {
                 height="18rem"
                 position="relative"
               >
+              
+               
+
                 <Image
                   objectFit="cover"
                   width="100%"
@@ -43,6 +48,7 @@ const SearchResults = () => {
                   </CardBody>
                 </Stack>
               </Card>
+              </Link>
             </div>
           ))
         ) : (

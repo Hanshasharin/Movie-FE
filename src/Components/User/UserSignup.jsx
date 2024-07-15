@@ -10,12 +10,7 @@ import { Link, Navigate } from "react-router-dom";
 import '../../pages/Users/UserAuth.css';
 import backgroundImage from '../../assets/images/movielogin.jpg';
 import { useNavigate } from "react-router-dom";
-import {
-  Alert,
-  AlertIcon,
-  AlertTitle,
-  AlertDescription,
-} from '@chakra-ui/react'
+
 
 const schema = yup.object({
   firstName: yup.string().required("First name is required"),
@@ -111,9 +106,3 @@ export default function Signup() {
     </div>
   );
 }
-
-
-
-
-
-

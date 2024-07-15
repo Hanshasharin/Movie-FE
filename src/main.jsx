@@ -21,6 +21,9 @@ import UserLogin from "./pages/Users/Login";
 import HomeLayout from "./layouts/HomeLayout";
 import SearchResults from "./Components/User/SearchResult";
 import AdminLayout from "./layouts/AdminLayout";
+import ProfilePage from "./Components/User/Profile";
+import Review from "./Components/Admin/Review";
+import PrivateUserRoutes from "./PrivateUserRoutes";
 
 const router = createBrowserRouter([
   {
@@ -39,7 +42,8 @@ const router = createBrowserRouter([
 {
   path: '/search',
   element: <SearchResults/>
-}
+},
+
     
   ]},
 
@@ -52,6 +56,11 @@ const router = createBrowserRouter([
         path: "/admin/users",
         element: <PrivateRoutes><UserLists /></PrivateRoutes>
       },
+      {
+        path: "/admin/review",
+        element: <PrivateRoutes><Review/></PrivateRoutes>
+      },
+      
       {
         path: "/admin/addmovies",
         element: <PrivateRoutes><MovieAdd/></PrivateRoutes>
@@ -74,20 +83,15 @@ const router = createBrowserRouter([
     path: "/admin/login",
     element: <AdminLogin/>
   },
-  
   {
-    path: "/admin/users",
-    element: <PrivateRoutes><UserLists /></PrivateRoutes>
+    path: "profile",
+    
+    element:
+    <PrivateUserRoutes>
+    <ProfilePage/>
+    </PrivateUserRoutes>
   },
-  {
-    path: "/admin/addmovies",
-    element: <PrivateRoutes><MovieAdd/></PrivateRoutes>
-  },
-  
-  // {
-  //   path: "/movie/dm/:id",
-  //   element: <MoviePage/>
-  // },
+ 
 {
   path: "/review",
   element:<ReviewAdd/>
